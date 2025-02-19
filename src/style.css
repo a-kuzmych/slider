@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset -100px 0 100px rgba(0, 0, 0, 0.3), inset 100px 0 100px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+canvas {
+  display: block;
+}
