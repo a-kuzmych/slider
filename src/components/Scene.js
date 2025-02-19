@@ -1,16 +1,21 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
 export class Scene {
   constructor() {
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
 
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(this.renderer.domElement);
 
     this.camera.position.z = 6;
-    
+
     this.targetX = 0;
     this.targetY = 0;
     this.smoothFactor = 0.1;
@@ -43,8 +48,16 @@ export class Scene {
   }
 
   render() {
-    this.targetX = THREE.MathUtils.lerp(this.targetX, this.mouseX * 2, this.smoothFactor);
-    this.targetY = THREE.MathUtils.lerp(this.targetY, -this.mouseY * 2, this.smoothFactor);
+    this.targetX = THREE.MathUtils.lerp(
+      this.targetX,
+      this.mouseX * 2,
+      this.smoothFactor
+    );
+    this.targetY = THREE.MathUtils.lerp(
+      this.targetY,
+      -this.mouseY * 2,
+      this.smoothFactor
+    );
 
     this.camera.position.x = this.targetX;
     this.camera.position.y = this.targetY;
